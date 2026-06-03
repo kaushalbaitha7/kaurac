@@ -13,7 +13,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 py-20 text-center">
 
         <h1 className="text-7xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-          KAURAC
+          Kaura Learning Hub
         </h1>
 
         <p className="mt-5 text-xl text-slate-400">
