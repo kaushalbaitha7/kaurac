@@ -1,7 +1,6 @@
 "use client";
 
-import PreviousLesson from "./PreviousLesson";
-import NextLesson from "./NextLesson";
+import Link from "next/link";
 
 interface TopicNavigationProps {
   previous?: {
@@ -20,26 +19,46 @@ export default function TopicNavigation({
   next,
 }: TopicNavigationProps) {
   return (
-    <div className="grid md:grid-cols-2 gap-6 mt-12">
+    <section className="mt-12 grid gap-4 md:grid-cols-2">
+
+      {/* Previous */}
 
       <div>
         {previous && (
-          <PreviousLesson
-            title={previous.title}
+          <Link
             href={previous.href}
-          />
+            className="group block rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:border-blue-300 hover:shadow-md"
+          >
+            <p className="text-sm font-medium text-slate-500">
+              ← Previous Lesson
+            </p>
+
+            <h3 className="mt-2 text-lg font-semibold text-slate-800 group-hover:text-blue-600">
+              {previous.title}
+            </h3>
+          </Link>
         )}
       </div>
+
+      {/* Next */}
 
       <div>
         {next && (
-          <NextLesson
-            title={next.title}
+          <Link
             href={next.href}
-          />
+            className="group block rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:border-blue-300 hover:shadow-md text-right"
+          >
+            <p className="text-sm font-medium text-slate-500">
+              Next Lesson →
+            </p>
+
+            <h3 className="mt-2 text-lg font-semibold text-slate-800 group-hover:text-blue-600">
+              {next.title}
+            </h3>
+          </Link>
         )}
       </div>
 
-    </div>
+    </section>
   );
 }

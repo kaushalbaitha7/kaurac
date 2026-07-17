@@ -40,7 +40,7 @@ export default function LessonSidebar({
 
       {/* Lessons */}
 
-      <div className="max-h-[80vh] overflow-y-auto">
+      <div className="max-h-full overflow-y-auto">
 
         {lessons.map((lesson) => (
 

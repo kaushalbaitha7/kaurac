@@ -9,36 +9,44 @@ interface TryCompilerButtonProps {
 
 export default function TryCompilerButton({
   language = "C",
-  title = "Try this example in KauraC",
+  title = "Practice in KauraC",
 }: TryCompilerButtonProps) {
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl p-8 text-white shadow-lg">
+    <section className="mt-10 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 shadow-lg overflow-hidden">
 
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 px-8 py-7">
 
-        <div>
+        <div className="flex items-start gap-4">
 
-          <h2 className="text-3xl font-bold">
-            💻 {title}
-          </h2>
+          <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center text-3xl">
+            💻
+          </div>
 
-          <p className="mt-3 text-blue-100 leading-7">
-            Practice the code directly in KauraC.
-            Modify it, execute it and understand the output
-            by experimenting yourself.
-          </p>
+          <div>
+
+            <h2 className="text-2xl font-bold text-white">
+              {title}
+            </h2>
+
+            <p className="mt-2 text-blue-100 leading-7 max-w-xl">
+              Run, edit and debug your {language} programs instantly using the
+              built-in <strong>KauraC Compiler</strong>. No installation
+              required.
+            </p>
+
+          </div>
 
         </div>
 
         <Link
           href="/compiler"
-          className="bg-white text-blue-700 font-semibold px-8 py-4 rounded-xl hover:scale-105 transition"
+          className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-blue-700 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
         >
           Open KauraC →
         </Link>
 
       </div>
 
-    </div>
+    </section>
   );
 }
