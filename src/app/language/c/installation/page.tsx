@@ -14,56 +14,50 @@ const lessons = [
     number: 2,
     title: "History",
     href: "/language/c/history",
+    completed: true,
   },
   {
     number: 3,
-    title: "Installation",
+    title: "Installation & Setup",
     href: "/language/c/installation",
+    completed: true,
   },
   {
     number: 4,
-    title: "First Program",
+    title: "Structure of a C Program",
+    href: "/language/c/structure",
+  },
+  {
+    number: 5,
+    title: "First C Program",
     href: "/language/c/first-program",
   },
 ];
 
 const markdown = `
-# Introduction to C Programming
+# Installation & Setup
 
-## What is C?
+Install VS Code and GCC Compiler before writing your first C program.
 
-C is a powerful general-purpose programming language.
+## Required Software
 
----
+- VS Code
+- GCC Compiler
 
-## Why Learn C?
+## Verify Installation
 
-- Fast
-- Portable
-- Efficient
-
----
-
-## First Program
-
-\`\`\`c
-#include<stdio.h>
-
-int main()
-{
-    printf("Hello KAURA");
-    return 0;
-}
+\`\`\`bash
+gcc --version
 \`\`\`
 
-Output
+## Create Your First File
 
 \`\`\`
-Hello KAURA
+hello.c
 \`\`\`
 `;
 
-export default function IntroductionPage() {
+export default function InstallationPage() {
   return (
     <main className="min-h-screen bg-slate-50">
 
@@ -74,27 +68,25 @@ export default function IntroductionPage() {
           <LessonSidebar
             course="C Programming"
             lessons={lessons}
-            currentLesson="/language/c/introduction"
+            currentLesson="/language/c/installation"
           />
 
           <div>
 
-            <MarkdownViewer
-              content={markdown}
-            />
+            <MarkdownViewer content={markdown} />
 
             <div className="mt-10">
-
-              <TryCompilerButton
-                language="C"
-              />
-
+              <TryCompilerButton language="C" />
             </div>
 
             <TopicNavigation
-              next={{
+              previous={{
                 title: "History of C",
                 href: "/language/c/history",
+              }}
+              next={{
+                title: "Structure of a C Program",
+                href: "/language/c/structure",
               }}
             />
 

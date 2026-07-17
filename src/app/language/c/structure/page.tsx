@@ -14,56 +14,49 @@ const lessons = [
     number: 2,
     title: "History",
     href: "/language/c/history",
+    completed: true,
   },
   {
     number: 3,
     title: "Installation",
     href: "/language/c/installation",
+    completed: true,
   },
   {
     number: 4,
-    title: "First Program",
+    title: "Structure of a C Program",
+    href: "/language/c/structure",
+    completed: true,
+  },
+  {
+    number: 5,
+    title: "First C Program",
     href: "/language/c/first-program",
   },
 ];
 
 const markdown = `
-# Introduction to C Programming
+# Structure of a C Program
 
-## What is C?
+Every C program follows a standard structure.
 
-C is a powerful general-purpose programming language.
-
----
-
-## Why Learn C?
-
-- Fast
-- Portable
-- Efficient
-
----
-
-## First Program
+## Example
 
 \`\`\`c
 #include<stdio.h>
 
 int main()
 {
-    printf("Hello KAURA");
+    printf("Welcome to Kaura");
+
     return 0;
 }
 \`\`\`
 
-Output
-
-\`\`\`
-Hello KAURA
-\`\`\`
+Execution starts from the main() function.
 `;
 
-export default function IntroductionPage() {
+export default function StructurePage() {
   return (
     <main className="min-h-screen bg-slate-50">
 
@@ -74,27 +67,27 @@ export default function IntroductionPage() {
           <LessonSidebar
             course="C Programming"
             lessons={lessons}
-            currentLesson="/language/c/introduction"
+            currentLesson="/language/c/structure"
           />
 
           <div>
 
-            <MarkdownViewer
-              content={markdown}
-            />
+            <MarkdownViewer content={markdown} />
 
             <div className="mt-10">
 
-              <TryCompilerButton
-                language="C"
-              />
+              <TryCompilerButton language="C" />
 
             </div>
 
             <TopicNavigation
+              previous={{
+                title: "Installation & Setup",
+                href: "/language/c/installation",
+              }}
               next={{
-                title: "History of C",
-                href: "/language/c/history",
+                title: "First C Program",
+                href: "/language/c/first-program",
               }}
             />
 
