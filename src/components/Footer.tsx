@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
 
             <h2 className="text-3xl font-bold">
-              KAURAC
+              KauraX
             </h2>
 
             <p className="text-slate-400 mt-4 leading-7">
@@ -74,7 +74,7 @@ export default function Footer() {
 
               <p>kaurahub@gmail.com</p>
 
-              <p>EETIRP Ltd.</p>
+              <p>EETIRP</p>
 
               <p>Bengaluru, India</p>
 
@@ -86,7 +86,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400">
 
-          © 2026 KAURAC | Built by EETIRP Ltd.
+          © 2026 KauraX | Built by EETIRP
 
         </div>
 

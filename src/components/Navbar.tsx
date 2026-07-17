@@ -27,7 +27,7 @@ export default function Navbar() {
             <div>
 
               <h1 className="text-2xl font-bold text-slate-900">
-                KAURAC
+                KauraX
               </h1>
 
               <p className="text-xs text-slate-500">

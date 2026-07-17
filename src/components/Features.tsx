@@ -48,7 +48,7 @@ export default function Features() {
         <div className="text-center">
 
           <h2 className="text-5xl font-bold text-slate-900">
-            Why Choose KAURAC?
+            Why Choose KauraX?
           </h2>
 
           <p className="text-slate-600 mt-4 text-lg">
