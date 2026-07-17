@@ -1,6 +1,6 @@
 # Introduction to C Programming
 
-Welcome to the **C Programming Course** on **KAURA Learning Hub**.
+Welcome to the **C Programming Course** on **KauraX**.
 
 C is one of the most influential programming languages ever created. Even after more than 50 years, it continues to power operating systems, embedded devices, databases, compilers, and many modern programming languages. Learning C helps you understand how software works at a deeper level and builds a strong foundation for becoming a skilled programmer.
 
@@ -127,7 +127,7 @@ Many famous software systems still contain millions of lines of C code.
 
 int main()
 {
-    printf("Welcome to KAURA Learning Hub!");
+    printf("Welcome to KauraX!");
 
     return 0;
 }
@@ -138,7 +138,7 @@ int main()
 ## ▶ Output
 
 ```text
-Welcome to KAURA Learning Hub!
+Welcome to KauraX!
 ```
 
 ---
@@ -271,4 +271,3 @@ In the next lesson, **History of C**, you will learn:
 - Important milestones.
 - Modern versions of the C language.
 
-Happy Coding! 💙

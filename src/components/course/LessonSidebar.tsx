@@ -22,41 +22,41 @@ export default function LessonSidebar({
   currentLesson,
 }: LessonSidebarProps) {
   return (
-    <aside className="w-full lg:w-80 bg-white rounded-3xl border border-slate-200 shadow-sm lg:sticky lg:top-24 overflow-hidden">
+    <aside className="flex h-full min-h-0 flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
 
       {/* Header */}
 
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-6">
+      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 p-6 text-white">
 
         <h2 className="text-2xl font-bold">
           {course}
         </h2>
 
-        <p className="text-blue-100 mt-2">
+        <p className="mt-2 text-blue-100">
           Course Curriculum
         </p>
 
       </div>
 
-      {/* Lessons */}
+      {/* Scrollable Lesson List */}
 
-      <div className="max-h-full overflow-y-auto">
+      <div className="min-h-0 flex-1 overflow-y-auto">
 
         {lessons.map((lesson) => (
 
           <Link
             key={lesson.number}
             href={lesson.href}
-            className={`block px-6 py-5 border-b transition-all duration-200
+            className={`block border-b px-6 py-5 transition-all duration-200
 
             ${
               currentLesson === lesson.href
-                ? "bg-blue-50 border-l-4 border-blue-600"
+                ? "border-l-4 border-blue-600 bg-blue-50"
                 : "hover:bg-slate-50"
             }`}
           >
 
-            <div className="flex justify-between items-start">
+            <div className="flex items-start justify-between">
 
               <div>
 
@@ -64,12 +64,12 @@ export default function LessonSidebar({
                   Lesson {lesson.number}
                 </p>
 
-                <h3 className="font-semibold text-slate-800 mt-1">
+                <h3 className="mt-1 font-semibold text-slate-800">
                   {lesson.title}
                 </h3>
 
                 {lesson.difficulty && (
-                  <span className="inline-block mt-2 px-2 py-1 rounded-full bg-slate-100 text-slate-600 text-xs">
+                  <span className="mt-2 inline-block rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-600">
                     {lesson.difficulty}
                   </span>
                 )}
@@ -79,11 +79,11 @@ export default function LessonSidebar({
               <div className="ml-4">
 
                 {lesson.completed ? (
-                  <span className="text-green-600 text-lg">
+                  <span className="text-lg text-green-600">
                     ✓
                   </span>
                 ) : (
-                  <span className="text-slate-300 text-lg">
+                  <span className="text-lg text-slate-300">
                     ○
                   </span>
                 )}

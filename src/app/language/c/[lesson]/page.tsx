@@ -56,32 +56,36 @@ export default async function LessonPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-slate-50">
 
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 
-        <div className="grid lg:grid-cols-[320px_minmax(0,1fr)] gap-8 items-start">
+  <div className="grid grid-cols-1 gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
 
-          {/* ================= Sidebar ================= */}
+    {/* Sidebar */}
 
-          <div className="sticky top-24 self-start h-[calc(100vh-110px)]">
+    <aside className="hidden lg:block">
 
-            <LessonSidebar
-              course="C Programming"
-              lessons={cLessons.map((lesson) => ({
-                number: lesson.id,
-                title: lesson.title,
-                href: `/language/c/${lesson.slug}`,
-                difficulty: lesson.difficulty,
-              }))}
-              currentLesson={`/language/c/${currentLesson.slug}`}
-            />
+      <div className="sticky top-24 h-[calc(100vh-6rem)] overflow-hidden">
 
-          </div>
+        <LessonSidebar
+          course="C Programming"
+          lessons={cLessons.map((lesson) => ({
+            number: lesson.id,
+            title: lesson.title,
+            href: `/language/c/${lesson.slug}`,
+            difficulty: lesson.difficulty,
+          }))}
+          currentLesson={`/language/c/${currentLesson.slug}`}
+        />
+
+      </div>
+
+    </aside>
 
           {/* ================= Content ================= */}
 
           <div className="min-w-0">
 
-            <div className="max-w-4xl mx-auto">
+            <div className="mx-auto w-full max-w-4xl">
 
               {/* Lesson Hero */}
 
@@ -103,13 +107,13 @@ export default async function LessonPage({ params }: Props) {
 
                 </div>
 
-                <h1 className="text-5xl font-bold text-slate-900">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">
 
                   {currentLesson.title}
 
                 </h1>
 
-                <p className="mt-5 text-lg text-slate-600 leading-8">
+                <p className="mt-5 text-base sm:text-lg leading-8 text-slate-600">
 
                   Learn <strong>{currentLesson.title}</strong> through
                   simple explanations, diagrams, examples, interview
