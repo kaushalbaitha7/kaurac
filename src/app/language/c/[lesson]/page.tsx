@@ -48,76 +48,86 @@ export default async function LessonPage({ params }: Props) {
     currentLesson.markdown
   );
 
-  const markdown = await fs.readFile(
-    markdownPath,
-    "utf-8"
-  );
+  let markdown = "";
+
+  try {
+    markdown = await fs.readFile(markdownPath, "utf-8");
+  } catch {
+    notFound();
+  }
 
   return (
     <main className="min-h-screen bg-slate-50">
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 
-  <div className="grid grid-cols-1 gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
 
-    {/* Sidebar */}
+          {/* Sidebar */}
 
-    <aside className="hidden lg:block">
+          <aside className="hidden lg:block">
 
-      <div className="sticky top-24 h-[calc(100vh-6rem)] overflow-hidden">
+            <div className="sticky top-24 h-[calc(100vh-6rem)] overflow-hidden">
 
-        <LessonSidebar
-          course="C Programming"
-          lessons={cLessons.map((lesson) => ({
-            number: lesson.id,
-            title: lesson.title,
-            href: `/language/c/${lesson.slug}`,
-            difficulty: lesson.difficulty,
-          }))}
-          currentLesson={`/language/c/${currentLesson.slug}`}
-        />
+              <LessonSidebar
+                course="KauraX • C Programming"
+                lessons={cLessons.map((lesson) => ({
+                  number: lesson.id,
+                  title: lesson.title,
+                  href: `/language/c/${lesson.slug}`,
+                  difficulty: lesson.difficulty,
+                }))}
+                currentLesson={`/language/c/${currentLesson.slug}`}
+              />
 
-      </div>
+            </div>
 
-    </aside>
+          </aside>
 
-          {/* ================= Content ================= */}
+          {/* Main Content */}
 
           <div className="min-w-0">
 
             <div className="mx-auto w-full max-w-4xl">
 
-              {/* Lesson Hero */}
+              {/* Hero */}
 
-              <section className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8 mb-8">
+              <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm mb-8">
 
                 <div className="flex flex-wrap gap-3 mb-6">
 
-                  <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
-                    Lesson {currentLesson.id}
+                  <span className="rounded-full bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-700">
+                    {currentLesson.category}
                   </span>
 
-                  <span className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold">
+                  <span className="rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
                     {currentLesson.difficulty}
                   </span>
 
-                  <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">
-                    {currentLesson.duration}
+                  <span className="rounded-full bg-purple-100 px-3 py-1 text-sm font-semibold text-purple-700">
+                    ⭐ {currentLesson.xp} XP
+                  </span>
+
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">
+                    📖 {currentLesson.readingTime}
                   </span>
 
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">
+                <h1 className="text-4xl font-bold text-slate-900 sm:text-5xl">
 
                   {currentLesson.title}
 
                 </h1>
 
-                <p className="mt-5 text-base sm:text-lg leading-8 text-slate-600">
+                <p className="mt-6 text-lg leading-8 text-slate-600">
 
-                  Learn <strong>{currentLesson.title}</strong> through
-                  simple explanations, diagrams, examples, interview
-                  questions and hands-on coding practice using KauraC.
+                  Master{" "}
+                  <strong>{currentLesson.title}</strong> with
+                  easy-to-understand explanations, examples,
+                  interview-focused concepts, coding practice,
+                  and real-world applications through
+                  <strong> KauraX</strong>.
 
                 </p>
 
@@ -131,7 +141,7 @@ export default async function LessonPage({ params }: Props) {
 
               {/* Compiler */}
 
-              <div className="mt-8">
+              <div className="mt-10">
 
                 <TryCompilerButton
                   language="C"
@@ -141,7 +151,7 @@ export default async function LessonPage({ params }: Props) {
 
               {/* Navigation */}
 
-              <div className="mt-8">
+              <div className="mt-10">
 
                 <TopicNavigation
                   previous={
