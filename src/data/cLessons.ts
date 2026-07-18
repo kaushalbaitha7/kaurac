@@ -349,9 +349,9 @@ export const cLessons: Lesson[] = [
   },
   {
     id: 34,
-    slug: "practice-10-mixed-programming",
+    slug: "practice-10-mixed-problems",
     title: "Practice Set 10 – Mixed Programming Problems",
-    markdown: "practice/practice-10-mixed-programming.md",
+    markdown: "practice/practice-10-mixed-problems.md",
     readingTime: "60 min",
     difficulty: "Advanced",
     category: "Practice",
